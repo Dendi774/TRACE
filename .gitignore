@@ -1,0 +1,22 @@
+
+# Node modules
+**/node_modules/
+
+# Environment variables and secrets
+**/.env
+**/.env.*
+
+# Dependencies and build outputs
+**/dist/
+**/build/
+
+# Logs
+*.log
+npm-debug.log*
+
+# IDE settings
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
