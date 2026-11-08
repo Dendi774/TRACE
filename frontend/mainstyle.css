@@ -1,0 +1,152 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: white;
+    min-height: 100vh;
+}
+
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 170px;
+    min-width: 170px;
+    background-color: #176187;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 18px 7px;
+}
+
+h2 {
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: Impact, sans-serif;
+    text-align: center;
+    letter-spacing: 3px;
+    padding: 15px 0;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.nav-link {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 9px 12px;
+    border-radius: 6px;
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+
+    transition: background-color 0.3s ease,
+                transform 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: #5E91AD;
+    transform: translateX(3px);
+}
+
+.nav-link.active {
+    background-color: #8AAEC1;
+    color: white;
+}
+
+.logout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: auto;
+    padding: 10px 22px;
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.logout:hover {
+    background-color: #0D4E70;
+}
+
+.content {
+    flex: 1;
+    min-width: 0;
+    padding: 20px 16px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 30px;
+}
+
+.welcome h1 {
+    font-size: 35px;
+    color: #30303A;
+    margin-bottom: 2px;
+}
+
+.welcome p {
+    font-size: 17px;
+    color: #30303A;
+}
+
+.date-display {
+    text-align: right;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px 15px;
+    background-color: #176187;
+    border-radius: 8px;
+    min-width: 200px;
+}
+
+@media (max-width: 650px) {
+
+    .sidebar {
+        width: 115px;
+        min-width: 115px;
+    }
+
+    .nav-link {
+        font-size: 9px;
+        padding: 9px 5px;
+        gap: 5px;
+    }
+
+    .nav-icon {
+        font-size: 19px;
+    }
+
+    .main-content {
+        padding: 18px 12px;
+    }
+
+    .welcome h1 {
+        font-size: 21px;
+    }
+
+    .welcome p {
+        font-size: 12px;
+    }
+}
