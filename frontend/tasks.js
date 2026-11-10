@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:5000/api';
+const API_URL = 'https://trace-backend.onrender.com/api';
 
 // CHANGE THIS if your activities model names its primary key differently
 const TASK_ID_FIELD = 'activity_ID';

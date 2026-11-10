@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:5000/api';
+const API_URL = 'https://trace-backend.onrender.com/api';
 const MAX_DEADLINES = 10; // how many rows to show in "Upcoming Deadlines"
 
 // Subject colors are picked by subject_ID
