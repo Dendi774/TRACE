@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 5000;
 const corsOptions = {
     origin: "https://trace-frontend-7c6u.onrender.com",
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"]
+    allowedHeaders: ["Content-Type", "Authorization", "accessToken"]
 };
 
 // middlewares
