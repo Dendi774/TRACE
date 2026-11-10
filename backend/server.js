@@ -12,8 +12,14 @@ const db = require("./models");
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+const corsOptions = {
+    origin: "https://trace-frontend-7c6u.onrender.com",
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"]
+};
+
 // middlewares
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
