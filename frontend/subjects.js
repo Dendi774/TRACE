@@ -1,4 +1,4 @@
-const API_URL = 'https://trace-backend.onrender.com/api';
+const API_URL = "https://trace-9393.onrender.com/api";
 
 // Subject colors are picked by subject_ID
 const SUBJECT_COLORS = ['#8B4F36', '#6A1FB0', '#1F4FAE', '#2E7D4F', '#C2410C', '#0E7490', '#9D174D', '#4D7C0F'];
