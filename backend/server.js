@@ -9,7 +9,7 @@ const db = require("./models");
 
 // initialize express app
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 // middlewares
 app.use(cors());
@@ -29,7 +29,7 @@ app.use("/api/activities", activityRoutes);
 // connect to the database and start the server
 db.sequelize.sync().then(() => {
         console.log("Database connected successfully.");
-        app.listen(PORT, () => {
+        app.listen(PORT, "0.0.0.0", () => {
             console.log(`Server is running on port: http://localhost:${PORT}`);
         });
     })
