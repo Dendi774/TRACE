@@ -1,38 +1,41 @@
 
 
-
 module.exports = (sequelize, DataTypes) => {
+  const Users = sequelize.define('Users', {
+    user_ID: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    username: {
+      type: DataTypes.STRING(50),
+      allowNull: false,
+      unique: true,
+      validate: { notEmpty: true, len: [3, 50] }
+    },
+    password: {
+      type: DataTypes.STRING(255), // store the bcrypt hash password
+      allowNull: false
+    }
+  }, {
+    tableName: 'Users',
+    timestamps: false
+  });
 
-    const Users = sequelize.define('Users', {
-        id: {
-            type: DataTypes.INTEGER,
-            primaryKey: true,
-            autoIncrement: true
-        },
-        name: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-        email: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            unique: true,
-            validate: {
-                isEmail: true // validates that the value is in email format
-            }
-        },
-        password: {
-            type: DataTypes.STRING,
-            allowNull: false
-        }
+  Users.associate = (models) => {
+    // One user registers many subjects
+    Users.hasMany(models.Subjects, {
+      foreignKey: { name: 'user_ID', allowNull: false },
+      onDelete: 'CASCADE',
+      hooks: true
     });
+    // One user creates many activities
+    Users.hasMany(models.Activities, {
+      foreignKey: { name: 'user_ID', allowNull: false },
+      onDelete: 'CASCADE',
+      hooks: true
+    });
+  };
 
-    Users.associate = (models) => {
-        Users.hasMany(models.Tasks, {
-            foreignKey: 'userId',
-            as: 'tasks'
-        });
-    };
-
-    return Users;
-}
+  return Users;
+};

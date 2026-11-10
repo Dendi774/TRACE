@@ -18,8 +18,13 @@ app.use(express.urlencoded({ extended: true }));
 
 // routers
 const userRoutes = require("./routes/Users");
+const subjectRoutes = require("./routes/Subjects");
+const activityRoutes = require("./routes/Activities");
 
+// routes
 app.use("/api/users", userRoutes);
+app.use("/api/subjects", subjectRoutes);
+app.use("/api/activities", activityRoutes);
 
 // connect to the database and start the server
 db.sequelize.sync().then(() => {

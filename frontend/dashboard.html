@@ -7,6 +7,7 @@
     <title>TRACE | Dashboard</title>
 
     <link rel="stylesheet" href="mainstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 
 <body>
@@ -14,49 +15,94 @@
     <div class="dashboard-container">
 
         <aside class="sidebar">
-            <h2>TRACE</h2>
+            <div class="logo">
+                <h2>TRACE</h2>
+            </div>
 
             <nav class="sidebar-nav">
-
                 <a href="dashboard.html" class="nav-link active">
                     <span>DASHBOARD</span>
                 </a>
-
                 <a href="tasks.html" class="nav-link">
                     <span>TASKS</span>
                 </a>
-
                 <a href="subjects.html" class="nav-link">
                     <span>SUBJECTS</span>
                 </a>
-
             </nav>
 
-            <a href="index.html" class="logout">
+            <a class="logout">
                 <span>LOGOUT</span>
             </a>
-
         </aside>
 
         <main class="content">
 
             <header class="header">
-
                 <div class="welcome">
-                    <h1>Welcome back, Student!</h1>
+                    <h1>Welcome back, <span id="username"></span>!</h1>
                     <p>Stay on track with your academic goals!</p>
                 </div>
 
                 <div class="date-display">
                     <p id="current-date"></p>
                 </div>
-                
             </header>
+
+            
+            <div class="dashboard-content">
+
+                <div class="dashboard-cards">
+                    <div class="card card-pending">
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                        <div class="card-info">
+                            <h1 id="stat-pending">0</h1>
+                            <p>Pendings</p>
+                        </div>
+                    </div>
+
+                    <div class="card card-overdue">
+                        <i class="fa-regular fa-clock"></i>
+                        <div class="card-info">
+                            <h1 id="stat-overdue">0</h1>
+                            <p>Overdue</p>
+                        </div>
+                    </div>
+
+                    <div class="card card-completed">
+                        <i class="fa-solid fa-square-check"></i>
+                        <div class="card-info">
+                            <h1 id="stat-completed">0</h1>
+                            <p>Completed</p>
+                        </div>
+                    </div>
+
+                    <div class="card card-total">
+                        <i class="fa-solid fa-clipboard-list"></i>
+                        <div class="card-info">
+                            <h1 id="stat-total">0</h1>
+                            <p>Total Activities</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- upcoming deadlines panel -->
+                <div class="additional-dashboard-content">
+                    <div class="additional-dashboard-header">
+                        <h3>UPCOMING DEADLINES</h3>
+                        <a href="tasks.html" id="view-task-btn">View Tasks --&gt;</a>
+                    </div>
+
+                    <div class="deadline-list" id="deadline-list"></div>
+                </div>
+
+            </div>
 
         </main>
 
     </div>
 
+    <script src="dashboard.js"></script>
     <script src="script.js"></script>
 
 </body>

@@ -7,6 +7,7 @@
     <title>TRACE | Tasks</title>
 
     <link rel="stylesheet" href="mainstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 
 <body>
@@ -14,51 +15,96 @@
     <div class="dashboard-container">
 
         <aside class="sidebar">
-
-            <h2>TRACE</h2>
+            <div class="logo">
+                <h2>TRACE</h2>
+            </div>
 
             <nav class="sidebar-nav">
-
                 <a href="dashboard.html" class="nav-link">
                     <span>DASHBOARD</span>
                 </a>
-
                 <a href="tasks.html" class="nav-link active">
                     <span>TASKS</span>
                 </a>
-
                 <a href="subjects.html" class="nav-link">
                     <span>SUBJECTS</span>
                 </a>
-
             </nav>
 
-            <a href="index.html" class="logout">
+            <a class="logout">
                 <span>LOGOUT</span>
             </a>
-
         </aside>
 
         <main class="content">
 
-            <header class="header">
+            <header class="page-header">
+                <h1 class="page-title">CURRENT TASKS</h1>
 
-                <div class="welcome">
-                    <h1>Current Tasks</h1>
-                    <p>Organize your activities and keep track of your deadlines!</p>
+                <div class="header-actions">
+                    <button type="button" class="btn-icon btn-add" id="add-task-btn" aria-label="Add task">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                    <button type="button" class="btn-icon btn-delete" id="delete-task-btn" aria-label="Delete tasks" aria-pressed="false">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </button>
                 </div>
 
-                <div class="date-display">
-                    <p id="current-date"></p>
-                </div>
-
+                
             </header>
+
+            <p class="delete-hint" id="delete-hint" style="opacity: 0;">Click on the task you want to delete.</p>
+
+            <section class="tasks-panel">
+                <table class="tasks-table">
+                    <thead>
+                        <tr>
+                            <th>NAME</th>
+                            <th>SUBJECT</th>
+                            <th>DEADLINE</th>
+                            <th>STATUS</th>
+                        </tr>
+                    </thead>
+                    <!-- tasks.js fills this from GET /api/activities -->
+                    <tbody id="task-list"></tbody>
+                </table>
+            </section>
 
         </main>
 
     </div>
 
-    <script src="script.js"></script>
-    
+    <!-- Add Task modal -->
+    <div class="modal-overlay" id="task-modal">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <button type="button" class="modal-close" id="close-modal-btn" aria-label="Close">X</button>
+
+            <h3 class="modal-title" id="modal-title">ADD ANOTHER TASK</h3>
+
+            <form id="task-form">
+                <div class="form-row">
+                    <label for="task-name">Activity Name:</label>
+                    <input type="text" id="task-name" maxlength="150" required>
+                </div>
+
+                <div class="form-row">
+                    <label for="task-subject">Subject:</label>
+                    <!-- tasks.js fills this from GET /api/subjects -->
+                    <select id="task-subject" required></select>
+                </div>
+
+                <div class="form-row">
+                    <label for="task-deadline">Deadline:</label>
+                    <input type="date" id="task-deadline" required>
+                </div>
+
+                <p class="form-error" id="form-error" role="alert"></p>
+
+                <button type="submit" class="btn-done" id="task-submit-btn">DONE</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="tasks.js"></script>
 </body>
 </html>

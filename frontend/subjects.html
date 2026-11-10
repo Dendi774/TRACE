@@ -7,6 +7,7 @@
     <title>TRACE | Subjects</title>
 
     <link rel="stylesheet" href="mainstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 
 <body>
@@ -14,50 +15,84 @@
     <div class="dashboard-container">
 
         <aside class="sidebar">
-
-            <h2>TRACE</h2>
+            <div class="logo">
+                <h2>TRACE</h2>
+            </div>
 
             <nav class="sidebar-nav">
-
                 <a href="dashboard.html" class="nav-link">
                     <span>DASHBOARD</span>
                 </a>
-
                 <a href="tasks.html" class="nav-link">
                     <span>TASKS</span>
                 </a>
-
                 <a href="subjects.html" class="nav-link active">
                     <span>SUBJECTS</span>
                 </a>
-
             </nav>
 
-            <a href="index.html" class="logout">
+            <a class="logout">
                 <span>LOGOUT</span>
             </a>
-
         </aside>
 
         <main class="content">
 
-            <header class="header">
+            <header class="page-header">
+                <h1 class="page-title">MY SUBJECTS</h1>
 
-                <div class="welcome">
-                    <h1>My Subjects</h1>
+                <div class="header-actions">
+                    <button type="button" class="btn-icon btn-add" id="add-subject-btn" aria-label="Add subject">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                    <button type="button" class="btn-icon btn-delete" id="delete-subject-btn" aria-label="Delete subjects" aria-pressed="false">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </button>
                 </div>
-
-                <div class="date-display">
-                    <p id="current-date"></p>
-                </div>
-
             </header>
+
+            <p class="delete-hint" id="delete-hint" style="opacity: 0;">click on the subject you want to delete.</p>
+
+            <section class="tasks-panel">
+                <table class="tasks-table subjects-table">
+                    <thead>
+                        <tr>
+                            <th>SUBJECT NAME</th>
+                            <th>PENDINGS</th>
+                            <th>COMPLETED</th>
+                            <th>OVERDUE</th>
+                        </tr>
+                    </thead>
+                    <!-- subjects.js fills this from GET /api/subjects -->
+                    <tbody id="subject-list"></tbody>
+                </table>
+            </section>
 
         </main>
 
     </div>
 
-    <script src="script.js"></script>
-    
+    <!-- Subject modal -->
+    <div class="modal-overlay" id="subject-modal">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="subject-modal-title">
+            <button type="button" class="modal-close" id="close-modal-btn" aria-label="Close">X</button>
+
+            <h3 class="modal-title" id="subject-modal-title">Add a Subject</h3>
+
+            <form id="subject-form">
+                <div class="form-row">
+                    <label for="subject-name">Subject Name:</label>
+                    <input type="text" id="subject-name" maxlength="100" required>
+                </div>
+
+                <p class="form-error" id="form-error" role="alert"></p>
+
+                <button type="submit" class="btn-done" id="subject-submit-btn">DONE</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="subjects.js"></script>
+
 </body>
 </html>
