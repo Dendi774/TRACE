@@ -569,7 +569,6 @@ h2 {
     font-size: 1rem;
 }
 
-
 @media (max-width: 768px) {
     .subjects-table td { font-size: 16px; }
     .subjects-table .subject-chip { font-size: 15px; }

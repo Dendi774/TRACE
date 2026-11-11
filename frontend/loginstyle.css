@@ -48,18 +48,18 @@ h1 {
 }
 
 .input-info label {
-    width: 125px;
-    text-align: right;
     font-size: 14px;
+    max-width: min-content;
     font-weight: bold;
     color: #30303A;
 }
 
+
 .input-info input {
     flex: 1;
     height: 31px;
-    background-color: #D9D9D9;
     border: none;
+    background-color: #D9D9D9;
     border-radius: 4px;
     padding: 5px 10px;
     outline: none;
@@ -74,7 +74,7 @@ button {
     display: block;
     width: 122px;
     height: 39px;
-    margin: 24px auto 0;
+    margin: auto;
 
     background-color: #11618A;
     color: white;
@@ -88,6 +88,55 @@ button {
 
 button:hover {
     background-color: #0D4E70;
+}
+
+
+.register-container {
+    height: auto;
+    padding: 29px 50px 24px;
+}
+
+.form-message {
+    min-height: 20px;
+    margin-top: 6px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: #C00000;
+}
+
+.form-message.success {
+    color: #2E7D4F;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+
+.switch-page {
+    margin-top: 16px;
+    text-align: center;
+    font-size: 14px;
+    color: white;
+}
+
+.switch-page a {
+    color: white;
+    font-weight: bold;
+}
+
+@media (min-width: 601px) {
+    .register-container .input-info label {
+        width: 150px;
+    }
+}
+
+@media (max-width: 600px) {
+    .register-container {
+        padding: 25px 20px;
+    }
 }
 
 @media (max-width: 600px) {

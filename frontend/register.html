@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRACE | Register</title>
+
+    <link rel="stylesheet" href="loginstyle.css">
+</head>
+
+<body>
+
+    <div class="login-page">
+
+        <h1>CREATE YOUR ACCOUNT</h1>
+
+        <div class="login-container register-container">
+            <form id="registerForm" novalidate>
+
+                <div class="input-info">
+                    <label for="username">USERNAME:</label>
+                    <input type="text" id="username" name="username"
+                           maxlength="50" autocomplete="username" required>
+                </div>
+
+                <div class="input-info">
+                    <label for="password">PASSWORD:</label>
+                    <input type="password" id="password" name="password"
+                           autocomplete="new-password" required>
+                </div>
+
+                <div class="input-info">
+                    <label for="confirmPassword">CONFIRM PASSWORD:</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword"
+                           autocomplete="new-password" required>
+                </div>
+
+                <p class="form-message" id="formMessage" role="alert"></p>
+
+                <button type="submit" id="registerBtn">REGISTER</button>
+
+            </form>
+        </div>
+
+        <p class="switch-page">Already have an account? <a href="index.html">Login</a></p>
+
+    </div>
+
+    <script src="register.js"></script>
+</body>
+</html>
