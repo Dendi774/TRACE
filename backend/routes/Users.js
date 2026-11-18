@@ -10,6 +10,8 @@ const {Users} = require('../models');
 const {validateToken} = require('../middlewares/AuthMiddlewares');
 const bcrypt = require('bcrypt');
 
+const { refreshStatuses } = require('../utils/refreshStatuses');
+
 
 const {sign} = require('jsonwebtoken'); // import jsonwebtoken for token generation
 
@@ -56,7 +58,7 @@ router.post('/login', async (req, res) => {
   }
 
   // compare the provided password with the hashed password
-  bcrypt.compare(password, user.password, (err, isMatch) => {
+  bcrypt.compare(password, user.password, async (err, isMatch) => {
     if (err) {
       return res.status(500).json({ error: 'Error comparing passwords' });
     }
@@ -64,6 +66,9 @@ router.post('/login', async (req, res) => {
     if (!isMatch) {
       return res.status(400).json({ error: 'Invalid username or password.' });
     }
+
+    // updates the status of each task upon login of the user
+    await refreshStatuses(user.user_ID).catch(console.error);
 
     // generate a JWT token for the authenticated user
     const accessToken = sign({ userId: user.user_ID, username: user.username }, process.env.JWT_SECRET || "importantsecret", { expiresIn: '1h' });

@@ -5,6 +5,7 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const db = require("./models");
+const { refreshStatuses } = require('../utils/refreshStatuses');
 
 
 
@@ -36,6 +37,8 @@ app.use("/api/activities", activityRoutes);
 // connect to the database and start the server
 db.sequelize.sync().then(() => {
         console.log("Database connected successfully.");
+        refreshStatuses().catch(console.error);
+        setInterval(() => refreshStatuses().catch(console.error), 60 * 60 * 1000);
         app.listen(PORT, "0.0.0.0", () => {
             console.log(`Server is running on port: http://localhost:${PORT}`);
         });

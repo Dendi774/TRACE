@@ -7,9 +7,12 @@ const { Activities } = require('../models');
 const { validateToken } = require('../middlewares/AuthMiddlewares');
 const {Subjects} = require('../models');
 
+const { refreshStatuses } = require('../utils/refreshStatuses');
+
 // get all activities for the logged-in user
 router.get('/', validateToken, async (req, res) => {
     const userId = req.user.user_ID; // userId is attached to req.body by validateToken middleware
+    await refreshStatuses(userId);
     try {
         const activities = await Activities.findAll({
             where: { user_ID: userId },
