@@ -10,7 +10,7 @@ const {Users} = require('../models');
 const {validateToken} = require('../middlewares/AuthMiddlewares');
 const bcrypt = require('bcrypt');
 
-const { refreshStatuses } = require('../utils/refreshStatuses');
+const { refreshStatuses } = require('../utils/refreshStatuses.js');
 
 
 const {sign} = require('jsonwebtoken'); // import jsonwebtoken for token generation
