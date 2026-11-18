@@ -14,7 +14,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 const corsOptions = {
-    origin: "https://trace-frontend-7c6u.onrender.com",
+    origin: ["https://trace-frontend-7c6u.onrender.com", "http://127.0.0.1:5500"],
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization", "accessToken"]
 };
