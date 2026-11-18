@@ -5,7 +5,7 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const db = require("./models");
-const { refreshStatuses } = require('/utils/refreshStatuses.js');
+const { refreshStatuses } = require('./utils/refreshStatuses');
 
 
 

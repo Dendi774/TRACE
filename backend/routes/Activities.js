@@ -7,7 +7,7 @@ const { Activities } = require('../models');
 const { validateToken } = require('../middlewares/AuthMiddlewares');
 const {Subjects} = require('../models');
 
-const { refreshStatuses } = require('../utils/refreshStatuses.js');
+const { refreshStatuses } = require('../utils/refreshStatuses');
 
 // get all activities for the logged-in user
 router.get('/', validateToken, async (req, res) => {
