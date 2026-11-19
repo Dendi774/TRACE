@@ -41,6 +41,7 @@ loginForm.addEventListener('submit', async (event) => {
             }
         } else {
             console.error('Login failed:', data.error);
+            window.alert('Login failed:', data.error)
         }
     } catch (error) {
         console.error('Error during login:', error);

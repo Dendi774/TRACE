@@ -1,4 +1,4 @@
-const API_URL = "https://trace-9393.onrender.com/api";
+const API_URL = "https://trace-9393.onrender.com/api"; // URL for the API for backend interaction
 const MAX_DEADLINES = 10; // how many rows to show in "Upcoming Deadlines"
 
 // Subject colors are picked by subject_ID

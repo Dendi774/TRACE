@@ -27,7 +27,7 @@ async function refreshStatuses(userId) {
              WHEN DATE(deadline) <= :inAWeek THEN 'Due Soon'
              ELSE 'Pending'
          END
-         WHERE status <> 'Completed'
+         WHERE status != 'Completed'
          ${userId ? 'AND user_ID = :userId' : ''}`,
         { replacements }
     );

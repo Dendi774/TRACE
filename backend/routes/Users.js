@@ -78,7 +78,7 @@ router.post('/login', async (req, res) => {
   });
 });
 
-
+// checks the user credentials
 router.get('/getMe', validateToken, async (req, res) => {
     
     try{

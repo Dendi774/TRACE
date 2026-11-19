@@ -23,6 +23,8 @@ router.get('/', validateToken, async (req, res) => {
     const startOfToday = new Date();
     startOfToday.setHours(0, 0, 0, 0);
 
+    // runs a map function that calculates the total number of pendings, overdue and completed statuses
+    // before returning it as a response
     const result = subjects.map((subject) => {
       let pending = 0, completed = 0, overdue = 0;
 
